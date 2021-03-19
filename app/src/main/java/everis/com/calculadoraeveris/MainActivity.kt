@@ -98,6 +98,16 @@ class MainActivity : AppCompatActivity() {
             Calculadora.clear()
             Resultado_View.setText(Resultado_View.getText().toString() + "/")
         }
+        Button_Porcentagem.setOnClickListener{
+            Operacoes.add('%')
+            var Numero:String = ""
+            for(i in Calculadora.indices){
+                Numero += Calculadora[i]
+            }
+            Numeros.add(Numero)
+            Calculadora.clear()
+            Resultado_View.setText(Resultado_View.getText().toString() + "%")
+        }
         Bt_Apagar.setOnClickListener{
             Resultado_View.setText("")
             Numeros.clear()
@@ -106,7 +116,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         Bt_Calcular.setOnClickListener{
-            var Resultados:Int = Numeros[0].toInt()?:0
+            var Resultados:Double = Numeros[0].toDouble()?:0.0
             var Numero:String = ""
             for(i in Calculadora.indices){
                 Numero += Calculadora[i]
@@ -116,13 +126,45 @@ class MainActivity : AppCompatActivity() {
 
                 for (i in 1.. Numeros.size-1) {
                     if (Operacoes[j] == '+') {
-                        Resultados += Numeros[i].toInt()
+                        if(Operacoes.any { it == '%' }){
+                            if(Operacoes[j+1] == '%'){
+                                Resultados += (Resultados * (Numeros[i].toDouble() / 100))
+                            }else{
+                                Resultados += Numeros[i].toDouble()
+                            }
+                        }else{
+                            Resultados += Numeros[i].toDouble()
+                        }
                     } else if (Operacoes[j] == '-') {
-                        Resultados -= Numeros[i].toInt()
+                        if(Operacoes.any { it == '%' }){
+                            if(Operacoes[j+1] == '%'){
+                                Resultados -= (Resultados * (Numeros[i].toDouble() / 100))
+                            }else{
+                                Resultados -= Numeros[i].toDouble()
+                            }
+                        }else{
+                            Resultados -= Numeros[i].toDouble()
+                        }
                     } else if (Operacoes[j] == '*') {
-                        Resultados *= Numeros[i].toInt()
+                        if(Operacoes.any { it == '%' }){
+                            if(Operacoes[j+1] == '%'){
+                                Resultados *= (Resultados * (Numeros[i].toDouble() / 100))
+                            }else{
+                                Resultados *= Numeros[i].toDouble()
+                            }
+                        }else{
+                            Resultados *= Numeros[i].toDouble()
+                        }
                     } else if (Operacoes[j] == '/') {
-                        Resultados /= Numeros[i].toInt()
+                        if(Operacoes.any { it == '%' }){
+                            if(Operacoes[j+1] == '%'){
+                                Resultados /= (Resultados * (Numeros[i].toDouble() / 100))
+                            }else{
+                                Resultados /= Numeros[i].toDouble()
+                            }
+                        }else{
+                            Resultados /= Numeros[i].toDouble()
+                        }
                     }
                     j++
                 }

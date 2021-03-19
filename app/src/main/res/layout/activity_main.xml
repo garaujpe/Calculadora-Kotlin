@@ -38,23 +38,6 @@
         app:layout_constraintVertical_bias="0.639" />
 
     <Button
-        android:id="@+id/Button_Virgula"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="20dp"
-        android:text="."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.613"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
-
-    <Button
         android:id="@+id/Button_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,14 +90,14 @@
         android:id="@+id/Button_0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="50dp"
+        android:paddingLeft="135dp"
         android:paddingTop="20dp"
-        android:paddingRight="50dp"
+        android:paddingRight="135dp"
         android:paddingBottom="20dp"
         android:text="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.96" />
